@@ -65,7 +65,7 @@ coverage:
 	$(MAKE) COVERAGE_FILE="$$PWD/.coverage" EQY="coverage run -a $$PWD/src/eqy.py" -C examples/risc16f84 clean test
 	$(MAKE) COVERAGE_FILE="$$PWD/.coverage" EQY="coverage run -a $$PWD/src/eqy.py" -C tests/python clean test
 	+cd tests/plugin && bash run-test.sh
-	lcov --capture -d . --no-external --include src/* -o coverage.info --gcov-tool $$PWD/llvm-gcov.sh
+	lcov --capture -d . --no-external -o coverage.info --gcov-tool $$PWD/llvm-gcov.sh
 	coverage report --omit=*/dist-packages/*
 	coverage lcov --omit=*/dist-packages/*
 	cat coverage.lcov >> coverage.info
