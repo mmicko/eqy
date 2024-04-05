@@ -45,8 +45,8 @@ jobs:
 
       - name: Build EQY
         run: |
-          make install DESTDIR=${GITHUB_WORKSPACE}/.local PREFIX=
-
-      - name: Run EQY tests
-        run: |
-          make test
+          sed -i 's,clang,g,g' ${GITHUB_WORKSPACE}/.local/bin/yosys-config
+          sed -i 's,--gcov-tool $$PWD/llvm-gcov.sh,,g' Makefile
+          make COVERAGE=1
+          make coverage
+          lcov_cobertura coverage.info --excludes usr. --demangle
