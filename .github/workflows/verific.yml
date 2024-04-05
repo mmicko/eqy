@@ -49,4 +49,4 @@ jobs:
           sed -i 's,--gcov-tool $$PWD/llvm-gcov.sh,,g' Makefile
           make COVERAGE=1
           make coverage
-          lcov_cobertura coverage.info --excludes usr. --demangle
+          lcov_cobertura coverage.info --excludes .local.share --demangle
