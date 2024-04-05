@@ -67,4 +67,4 @@ jobs:
           path: coverage.xml
           minimum_coverage: 85
           skip_covered: false
-
+          fail_below_threshold: true
