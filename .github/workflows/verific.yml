@@ -45,9 +45,18 @@ jobs:
 
       - name: Build EQY
         run: |
+          make
+
+      - name: Run EQY tests
+        run: |
+          make test EQY="python3 $(pwd)/src/eqy.py"
+
+      - name: EQY Coverage
+        run: |
           sed -i 's,clang,g,g' ${GITHUB_WORKSPACE}/.local/bin/yosys-config
           sed -i 's,--gcov-tool $$PWD/llvm-gcov.sh,,g' Makefile
           sed -i "s,--no-external,--no-external --exclude '*/.local/share/*',g" Makefile
+          make clean
           make COVERAGE=1
           make coverage
           lcov_cobertura coverage.info --excludes .local.share --demangle
