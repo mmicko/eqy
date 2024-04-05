@@ -51,3 +51,9 @@ jobs:
           make COVERAGE=1
           make coverage
           lcov_cobertura coverage.info --excludes .local.share --demangle
+
+      - name: Report
+        uses: 5monkeys/cobertura-action@master
+        with:
+          path: coverage.xml
+          minimum_coverage: 85
