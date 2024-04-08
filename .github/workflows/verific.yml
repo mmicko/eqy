@@ -62,10 +62,9 @@ jobs:
           lcov_cobertura coverage.info --excludes .local.share --demangle
 
       - name: Report
-        uses: insightsengineering/coverage-action@v2
+        uses: 5monkeys/cobertura-action@master
         with:
           path: coverage.xml
-          threshold: 85
-          fail: true
-          publish : true
-          coverage-summary-title: "Code Coverage Summary"
+          minimum_coverage: 90
+          skip_covered: false
+          fail_below_threshold: true
