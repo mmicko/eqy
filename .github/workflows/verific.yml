@@ -47,9 +47,8 @@ jobs:
         run: |
           make
 
-      - name: Run EQY tests
-        uses: michaelhenry/create-report
+      - uses: dtinth/markdown-report-action@v1
         with:
-          title: "Markdown report"
-          path: sample.md
-          format: markdown
+          name: Report name
+          title: Report title here
+          body-file: sample.md
