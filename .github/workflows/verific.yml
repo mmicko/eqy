@@ -47,10 +47,6 @@ jobs:
         run: |
           make
 
-      - name: Run EQY tests
-        run: |
-          make test EQY="python3 $(pwd)/src/eqy.py"
-
       - name: EQY Coverage
         run: |
           sed -i 's,clang,g,g' ${GITHUB_WORKSPACE}/.local/bin/yosys-config
