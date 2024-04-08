@@ -48,7 +48,7 @@ jobs:
           make
 
       - name: Run EQY tests
-        uses: michaelhenry/create-report@v2
+        uses: michaelhenry/create-report
         with:
           title: "Markdown report"
           path: sample.md
